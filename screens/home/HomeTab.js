@@ -1,47 +1,18 @@
 import React,{useLayoutEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Ficons from 'react-native-vector-icons/FontAwesome';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home1 from './home1';
 import Payment from './payment';
 import Budget from './budget';
 import Card from './card';
 import More from './more';
-import AntDesign from 'react-native-vector-icons/AntDesign'
 
-import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 const Tab = createBottomTabNavigator();
 
-// headerLeft:()=>(
-//     <View>
-//         <Text>Hi, Olaitan</Text>
-//     </View>
-// )
-
-// const activityStackNavigator = createStackNavigator({
-//     Activity: {
-//       screen: Payment,
-//       navigationOption: {
-//         headerTitle: 'Some title...'
-//       }
-//     }
-//   })
 
 const  HomeTab =({navigation}) =>{
 
-    // useLayoutEffect(() => {
-    //     navigation.setOptions({
-      
-    //     headerRight:()=><AntDesign size={25} color="balck" name="bells" style={styles.bell}/>
-    
-    
-    //     });
-        
-    
-        
-    //   }, [navigation]);
   return (
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -93,27 +64,4 @@ const  HomeTab =({navigation}) =>{
   );
 }
 
-const styles = StyleSheet.create({
-
-    con1:{
-        paddingTop:20,
-        paddingBottom:20
-    },
-    out:{
-        color:"red",
-        fontWeight:'bold',
-        fontSize:20,
-        textAlign:'center',
-        padding:20
-    },
-    version:{
-        fontWeight:'bold',
-        fontSize:20,
-        textAlign:'center',
-        padding:20
-    },
-    bell:{
-        paddingRight:15
-    }
-})
 export default HomeTab;

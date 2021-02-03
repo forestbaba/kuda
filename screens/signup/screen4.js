@@ -49,18 +49,10 @@ const {width, height} = Dimensions.get('window');
                     })
                 }
             
-           
-
-            
 
             </View>
            
-            {/* <Datepicker
-            placeholder='Start Date'
-            style={{width:'95%'}} 
-            // date={selectedDate}
-            onSelect={nextDate =>setSelectedDate(nextDate)}
-          /> */}
+          
             <CustomFormTextField title={"Date Of Birth"} placeholder="19/01/1980"/>
            
            <View style={styles.bottomtab}>
