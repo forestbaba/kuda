@@ -31,16 +31,19 @@ const  HomeTab =({navigation}) =>{
                 ? 'ios-information-circle'
                 : 'ios-information-circle-outline';
                 title="Hwy"
-            } else if (route.name === 'Payments') {
+            } 
+            else if (route.name === 'Payments') {
               iconName = focused ? 'send' : 'send';
             }
             else if (route.name === 'Budget') {
               iconName = focused ? 'ios-pie-chart-outline' : 'pie-chart';
             
-            } else if (route.name === 'Cards') {
+            } 
+            else if (route.name === 'Cards') {
               iconName = focused ? 'card' : 'ios-card-outline';
-            } else if (route.name === 'More') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
+            }
+            else if (route.name === 'More') {
+              iconName = focused ? 'ios-list' : 'ios-list';
             }
 
             // You can return any component that you like here!
