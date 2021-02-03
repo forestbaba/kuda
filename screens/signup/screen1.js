@@ -40,7 +40,7 @@ const {width, height} = Dimensions.get('window');
             <CustomFormTextField title={"Referral Code (Optional)"} placeholder="XXXXXXXX"/>
             <Text style={styles.policytitle}>For information on what we do with your data, please read our <Text style={styles.textPolicy}>Privacy Notice</Text></Text>            
            <View style={styles.bottomtab}>
-                <ActionButton title="Continue" style={styles} handleOnPress={()=> navigation.navigate('pinlogin')}/>
+                <ActionButton title="Continue" style={styles} handleOnPress={()=> navigation.navigate('screen2')}/>
 
            </View>
         </View>

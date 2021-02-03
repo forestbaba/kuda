@@ -1,11 +1,37 @@
-import React from 'react'
+import React,{useCallback} from 'react'
 import { View, Text, StyleSheet} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Entypo from 'react-native-vector-icons/Entypo'
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 Entypo.loadFont();
 
 const  Budget =() =>{
+
+    const navigation = useNavigation();
+
+    useFocusEffect(
+        useCallback(() => {
+
+            // Get StackNav navigation item
+            const stackNavigator = navigation.dangerouslyGetParent();
+            if(stackNavigator){
+
+                // Actually set Title
+                stackNavigator.setOptions({
+                    title: "Budget"
+                });
+                stackNavigator.setOptions({
+                    headerLeft:()=>null
+                    
+                 });
+                 stackNavigator.setOptions({
+                    headerRight:()=> null
+                 });
+            }
+        }, [navigation])
+    );
+
     return (
         <View>
             

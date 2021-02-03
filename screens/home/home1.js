@@ -1,11 +1,54 @@
-import React from 'react'
+import React,{useLayoutEffect,useCallback} from 'react'
 import { View,Text, StyleSheet } from 'react-native';
 import AntDesign from 'react-native-vector-icons/Fontisto'
 import ActionButton from '../../components/ActionButton';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import AntDesign2 from 'react-native-vector-icons/AntDesign'
+
 
 AntDesign.loadFont()
 
 const Home1 =()=> {
+
+    const navigation = useNavigation();
+
+    useFocusEffect(
+        useCallback(() => {
+
+            // Get StackNav navigation item
+            const stackNavigator = navigation.dangerouslyGetParent();
+            if(stackNavigator){
+
+                // Actually set Title
+                stackNavigator.setOptions({
+                    title: ""
+                });
+
+                stackNavigator.setOptions({
+                    headerRight:()=>(
+                        <View style={styles.headerright}>
+                            <Text style={styles.addmoney}>Add Money</Text>
+                                 <AntDesign2 size={20} color="black" name="plus" style={styles.bell}/>
+                    </View>
+                    )
+                    
+                 });
+                stackNavigator.setOptions({
+                    headerLeft:()=>(
+                        <View style={styles.headerright}>
+                             <AntDesign2 size={40} color="black" name="user" style={styles.bell}/>
+                            <Text style={styles.addname}>Hi, Olaitan</Text>
+                    </View>
+                    )
+                    
+                 });
+            }
+        }, [navigation])
+    );
+
+ 
+
+
     return (
         <View style={styles.parent}>
             <View style={styles.child1}>
@@ -42,7 +85,8 @@ const Home1 =()=> {
 const styles = StyleSheet.create({
     parent:{
         flex:1,
-        alignItems:'center'
+        alignItems:'center',
+        padding:20
     },
     rowcontainer:{
         width:'80%',
@@ -100,6 +144,20 @@ const styles = StyleSheet.create({
         padding:20,
         paddingLeft:30,
         paddingRight:30
+    },
+    headerright:{
+        flexDirection:'row',
+        justifyContent:'center'
+    },
+    addmoney:{
+        fontWeight:'bold',
+        paddingRight:10
+    },
+    addname:{
+        fontWeight:'bold',
+        paddingRight:15,
+        paddingTop:10,
+        fontSize:20
     }
 })
 export default Home1;

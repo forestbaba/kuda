@@ -5,11 +5,14 @@ import ActionButton from '../components/ActionButton';
 import CustomTextInput from '../components/CustomTextInput';
 import {Styles} from '../utils/Styles';
 import { isAndroid } from '../utils/HelperFunctions';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 AntDesign.loadFont();
 
 const {width, height} = Dimensions.get('window');
  const PinLoginScreen =() =>{
+    const navigation = useNavigation();
+
 
     const [otpArray, setOtpArray] = useState(['', '', '', '']);
      const [secEntry, setSecEntry] = useState(true);
@@ -121,7 +124,7 @@ const {width, height} = Dimensions.get('window');
             />
           ))}
         </View>
-            <ActionButton title={"Sign in"}/>
+            <ActionButton title={"Sign in"} handleOnPress={()=>navigation.navigate('hometab')}/>
             <Text style={styles.warning}>Forgot your PIN or this isn't you?</Text>
             <TouchableOpacity>
              <Text style={styles.changepassword}>Sign out</Text>

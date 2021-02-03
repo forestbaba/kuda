@@ -1,10 +1,34 @@
-import React from 'react'
+import React,{useCallback} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import  FontAwesome from 'react-native-vector-icons/FontAwesome'
 import RowItem from '../../components/RowItem'
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 FontAwesome.loadFont()
 const Payment =()=> {
+    const navigation = useNavigation();
+
+    useFocusEffect(
+        useCallback(() => {
+
+            // Get StackNav navigation item
+            const stackNavigator = navigation.dangerouslyGetParent();
+            if(stackNavigator){
+
+                // Actually set Title
+                stackNavigator.setOptions({
+                    title: "Payments"
+                });
+                stackNavigator.setOptions({
+                    headerLeft:()=>null
+                    
+                 });
+                 stackNavigator.setOptions({
+                    headerRight:()=> null
+                 });
+            }
+        }, [navigation])
+    );
 
     return (
         <View>

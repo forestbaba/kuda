@@ -1,22 +1,43 @@
-import React,{useLayoutEffect} from 'react'
+import React,{useLayoutEffect, useCallback} from 'react'
 import { View, StyleSheet, ScrollView, Text, TouchableOpacity} from 'react-native';
 import RowItem from '../../components/RowItem';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 AntDesign.loadFont();
 
-const More=({navigation})=> {
-    useLayoutEffect(() => {
-        navigation.setOptions({
-      
-        headerRight:()=><AntDesign size={25} color="balck" name="bells" style={styles.bell}/>
-    
-    
-        });
-        
-    
-        
-      }, [navigation]);
+const More=({})=> {
+
+    const navigation = useNavigation();
+
+    useFocusEffect(
+        useCallback(() => {
+
+            // Get StackNav navigation item
+            const stackNavigator = navigation.dangerouslyGetParent();
+            if(stackNavigator){
+
+                // Actually set Title
+                stackNavigator.setOptions({
+                    title: "More"
+                });
+                stackNavigator.setOptions({
+                    headerLeft:()=>null
+                    
+                 });
+                 stackNavigator.setOptions({
+                    headerRight:()=>(
+                        <View style={styles.headerright}>
+                                 <AntDesign size={20} color="black" name="bells" style={styles.bell}/>
+                    </View>
+                    )
+                    
+                 });
+            }
+        }, [navigation])
+    );
+
+   
     return (
         <ScrollView>
         <View>

@@ -40,21 +40,17 @@ const App= () => {
     <>
       <StatusBar barStyle="dark-content" />
       <NavigationContainer>
-      <Stack.Navigator>
-
-      <Stack.Screen name="hometab" component={HomeTab} />
-      <Stack.Screen name="more" component={More} />
-      <Stack.Screen name="card" component={Card} />
-      <Stack.Screen name="budget" component={Budget} />
-      <Stack.Screen name="payment" component={Payment} />
-      <Stack.Screen name="home" component={Home1} />
-      <Stack.Screen name="screen4" component={Screen4} />
-      <Stack.Screen name="screen3" component={Screen3} />
-      <Stack.Screen name="screen2" component={Screen2} />
+      <Stack.Navigator >
         <Stack.Screen name="Home" component={Startscreen} />
-        <Stack.Screen name="pinlogin" component={Signupscreen} />
-        <Stack.Screen name="login" component={Loginscreen} />
-        <Stack.Screen name="screen1" component={Screen1} />
+
+
+      <Stack.Screen name="screen4" component={Screen4} />
+      <Stack.Screen name="screen3" component={Screen3} options={{headerTitle:""}}  />
+      <Stack.Screen name="screen2" component={Screen2}  options={{headerTitle:""}} />
+        <Stack.Screen name="pinlogin" component={Signupscreen} options={{headerTitle:""}} />
+        <Stack.Screen name="login" component={Loginscreen} />      
+        <Stack.Screen name="hometab" component={HomeTab}  />
+        <Stack.Screen name="screen1" component={Screen1} options={{headerTitle:""}} />
       </Stack.Navigator>
        </NavigationContainer>
     </>

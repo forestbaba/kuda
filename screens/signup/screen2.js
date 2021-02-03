@@ -85,7 +85,7 @@ const {width, height} = Dimensions.get('window');
             
            
             <View style={styles.bottomtab}>
-                <ActionButton title="Continue" style={styles} handleOnPress={()=> navigation.navigate('pinlogin')}/>
+                <ActionButton title="Continue" style={styles} handleOnPress={()=> navigation.navigate('screen3')}/>
 
            </View>
         </View>
